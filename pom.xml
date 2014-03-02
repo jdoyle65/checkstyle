@@ -23,11 +23,9 @@
   <groupId>com.puppycrawl.tools</groupId>
   <artifactId>checkstyle</artifactId>
   <version>5.8-SNAPSHOT</version>
-  <packaging>jar</packaging>
   <name>checkstyle</name>
   <url>http://checkstyle.sourceforge.net/</url>
   <issueManagement>
-    <system>GitHub Issues</system>
     <url>https://github.com/checkstyle/checkstyle/issues</url>
   </issueManagement>
   <ciManagement>
@@ -413,11 +411,12 @@
           <archive>
             <manifest>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>>
             </manifest>
           </archive>
         </configuration>
       </plugin>
+      
 
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -450,6 +449,23 @@
           <downloadJavadocs>true</downloadJavadocs>
         </configuration>
       </plugin>
+      
+      <plugin>
+    	<artifactId>maven-assembly-plugin</artifactId>
+    		<executions>
+     			<execution>
+        			<phase>package</phase>
+        			<goals>
+          				<goal>single</goal>
+        			</goals>
+      			</execution>
+    		</executions>
+    		<configuration>
+      			<descriptorRefs>
+        			<descriptorRef>jar-with-dependencies</descriptorRef>
+      			</descriptorRefs>
+    		</configuration>
+  	</plugin>
     </plugins>
   </build>
 
