@@ -95,6 +95,9 @@ tokens {
     
     //Tokens for Java 1.7 language enhancements
     RESOURCE_SPECIFICATION; RESOURCES; RESOURCE;
+
+    //Tokens for Java 1.8 language enhancements ** INCOMPLETE **
+    LAMBDA;
 }
 
 {
@@ -1612,6 +1615,11 @@ SEMI			:	';'		;
 //token signifying annotations and annotation declaration
 AT
     :   '@'
+    ;
+
+//token for creating a lambda expression (Introduced in Java 1.8)
+LAMBDA
+    :   "->"
     ;
 
 // Whitespace -- ignored
