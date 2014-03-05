@@ -1211,18 +1211,11 @@ expression
 		{#expression = #(#[EXPR,"EXPR"],#expression);}
 	;
 
-
 // This is a list of expressions.
 expressionList
 	:	expression (COMMA expression)*
 		{#expressionList = #(#[ELIST,"ELIST"], expressionList);}
 	;
-
-// This is pureley for testing purposes at the moment
-/*lambdaExpression
-    :   assignmentExpression
-        (LAMBDA^)?
-    ;*/
 
 
 // assignment expression (level 13)
@@ -1240,7 +1233,6 @@ assignmentExpression
             |   BAND_ASSIGN^
             |   BXOR_ASSIGN^
             |   BOR_ASSIGN^
-            |   LAMBDA^
             )
 			assignmentExpression
 		)?
@@ -1484,6 +1476,11 @@ newExpression
 		|	newArrayDeclarator (arrayInitializer)?
 		)
 	;
+
+/*    // This is pureley for testing purposes at the moment
+lambdaExpression
+    :   (expression)+ LAMBDA^ (expression)+
+    ;*/
 
 argList
 	:	(	expressionList

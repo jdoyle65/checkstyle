@@ -3412,7 +3412,12 @@ public final class TokenTypes
      * '>' symbol signifying the end of type arguments or type parameters.
      */
     public static final int GENERIC_END = GeneratedJavaTokenTypes.GENERIC_END;
-
+    
+    /**
+     * '->' symbol signifying a lambda expression.
+     */
+    public static final int LAMBDA = GeneratedJavaTokenTypes.LAMBDA;
+    
     ////////////////////////////////////////////////////////////////////////
     // The interesting code goes here
     ////////////////////////////////////////////////////////////////////////
