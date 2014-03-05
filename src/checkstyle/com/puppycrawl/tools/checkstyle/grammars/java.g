@@ -1219,9 +1219,10 @@ expressionList
 	;
 
 // This is pureley for testing purposes at the moment
-lambdaExpression
-    :   identifier LAMBDA^ identifier SEMI
-    ;
+/*lambdaExpression
+    :   assignmentExpression
+        (LAMBDA^)?
+    ;*/
 
 
 // assignment expression (level 13)
@@ -1239,6 +1240,7 @@ assignmentExpression
             |   BAND_ASSIGN^
             |   BXOR_ASSIGN^
             |   BOR_ASSIGN^
+            |   LAMBDA^
             )
 			assignmentExpression
 		)?
