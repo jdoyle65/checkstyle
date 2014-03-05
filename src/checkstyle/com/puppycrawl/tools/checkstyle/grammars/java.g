@@ -1218,6 +1218,11 @@ expressionList
 		{#expressionList = #(#[ELIST,"ELIST"], expressionList);}
 	;
 
+// This is pureley for testing purposes at the moment
+lambdaExpression
+    :   identifier LAMBDA^ identifier SEMI
+    ;
+
 
 // assignment expression (level 13)
 assignmentExpression
