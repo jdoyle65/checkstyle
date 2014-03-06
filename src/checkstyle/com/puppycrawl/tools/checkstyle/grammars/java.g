@@ -974,7 +974,14 @@ compoundStatement
 statement
 	:	traditionalStatement
 	|	assertStatement
+    |   lambdaStatement
 	;
+
+// lambda statmenet, introduced in Java 1.8
+lambdaStatement
+    :  IDENT LAMBDA^ compoundStatement
+    ;
+
 
 // assert statement, available since JDK 1.4
 assertStatement
@@ -1170,6 +1177,11 @@ finallyHandler
     : "finally"^ compoundStatement
     ;
 
+// This is pureley for testing purposes at the moment
+/*lambdaExpression
+    :   LAMBDA^ compoundStatement
+    ;*/
+
 
 // expressions
 // Note that most of these expressions follow the pattern
@@ -1218,12 +1230,6 @@ expressionList
 		{#expressionList = #(#[ELIST,"ELIST"], expressionList);}
 	;
 
-// This is pureley for testing purposes at the moment
-/*lambdaExpression
-    :   assignmentExpression
-        (LAMBDA^)?
-    ;*/
-
 
 // assignment expression (level 13)
 assignmentExpression
@@ -1240,7 +1246,6 @@ assignmentExpression
             |   BAND_ASSIGN^
             |   BXOR_ASSIGN^
             |   BOR_ASSIGN^
-            |   LAMBDA^
             )
 			assignmentExpression
 		)?
