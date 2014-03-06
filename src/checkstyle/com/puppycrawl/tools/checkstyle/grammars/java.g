@@ -1177,10 +1177,6 @@ finallyHandler
     : "finally"^ compoundStatement
     ;
 
-// This is pureley for testing purposes at the moment
-/*lambdaExpression
-    :   LAMBDA^ compoundStatement
-    ;*/
 
 
 // expressions
@@ -1222,7 +1218,6 @@ expression
 	:	assignmentExpression
 		{#expression = #(#[EXPR,"EXPR"],#expression);}
 	;
-
 
 // This is a list of expressions.
 expressionList
@@ -1489,6 +1484,7 @@ newExpression
 		|	newArrayDeclarator (arrayInitializer)?
 		)
 	;
+
 
 argList
 	:	(	expressionList

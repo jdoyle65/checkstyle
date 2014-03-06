@@ -3413,10 +3413,12 @@ public final class TokenTypes
      */
     public static final int GENERIC_END = GeneratedJavaTokenTypes.GENERIC_END;
 
+
     /**
      * '->' symbol signigying a lambda statement.
      */
     public static final int LAMBDA = GeneratedJavaTokenTypes.LAMBDA;
+
 
     ////////////////////////////////////////////////////////////////////////
     // The interesting code goes here
