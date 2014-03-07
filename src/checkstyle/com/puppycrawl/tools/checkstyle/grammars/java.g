@@ -974,7 +974,14 @@ compoundStatement
 statement
 	:	traditionalStatement
 	|	assertStatement
+    |   lambdaStatement
 	;
+
+// lambda statmenet, introduced in Java 1.8
+lambdaStatement
+    :  IDENT LAMBDA^ compoundStatement
+    ;
+
 
 // assert statement, available since JDK 1.4
 assertStatement
@@ -1175,6 +1182,7 @@ lambdaDeclaration
     ;
 
 
+
 // expressions
 // Note that most of these expressions follow the pattern
 //   thisLevelExpression :
@@ -1214,7 +1222,6 @@ expression
 	:	assignmentExpression
 		{#expression = #(#[EXPR,"EXPR"],#expression);}
 	;
-
 
 // This is a list of expressions.
 expressionList
@@ -1481,6 +1488,7 @@ newExpression
 		|	newArrayDeclarator (arrayInitializer)?
 		)
 	;
+
 
 argList
 	:	(	expressionList

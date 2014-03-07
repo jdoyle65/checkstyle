@@ -1,6 +1,6 @@
-
 public class LambdaTest {
-	public LambdaTest() {
-		-> { return x + y; };
+	public LambdaTest()
+	{
+		x -> { return x + y; };
 	}
 }
