@@ -3419,6 +3419,10 @@ public final class TokenTypes
      */
     public static final int LAMBDA = GeneratedJavaTokenTypes.LAMBDA;
 
+    /**
+     * token for identifying lambda signature.
+     */
+    public static final int LAMBDA_SIG = GeneratedJavaTokenTypes.LAMBDA_SIG;
 
     ////////////////////////////////////////////////////////////////////////
     // The interesting code goes here

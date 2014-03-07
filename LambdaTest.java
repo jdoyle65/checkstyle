@@ -1,6 +1,7 @@
 public class LambdaTest {
 	public LambdaTest()
 	{
-		x -> { return x + y; };
+		(Blah<Integer> x, int y) -> { return x + y; };
+		yo(int x, int y);
 	}
 }

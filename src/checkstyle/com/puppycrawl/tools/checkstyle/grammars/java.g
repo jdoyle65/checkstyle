@@ -97,7 +97,7 @@ tokens {
     RESOURCE_SPECIFICATION; RESOURCES; RESOURCE;
 
     //Tokens for Java 1.8 language enhancements ** INCOMPLETE **
-    LAMBDA;
+    LAMBDA; LAMBDA_SIG;
 }
 
 {
@@ -972,14 +972,25 @@ compoundStatement
 
 // overrides the statement production in java.g, adds assertStatement
 statement
-	:	traditionalStatement
+	:	(traditionalStatement)=> traditionalStatement
 	|	assertStatement
-    |   lambdaStatement
+    |   (lambdaStatement)=> lambdaStatement
 	;
 
 // lambda statmenet, introduced in Java 1.8
 lambdaStatement
-    :  IDENT LAMBDA^ compoundStatement
+    :   lambdaSignature LAMBDA^ compoundStatement
+    ;
+
+protected
+lambdaSignature
+    :   IDENT // x ->
+    |   (lp:LPAREN^ {#lp.setType(LAMBDA_SIG);} 
+        (   IDENT (COMMA IDENT)*
+        |   type IDENT (COMMA type IDENT)*
+        |   /* nothing */
+        )
+        RPAREN)
     ;
 
 
