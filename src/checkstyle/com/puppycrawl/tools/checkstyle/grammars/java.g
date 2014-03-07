@@ -95,6 +95,9 @@ tokens {
     
     //Tokens for Java 1.7 language enhancements
     RESOURCE_SPECIFICATION; RESOURCES; RESOURCE;
+
+    //Tokens for Java 1.8 language enhancements
+    LAMBDA;
 }
 
 {
@@ -1167,6 +1170,10 @@ finallyHandler
     : "finally"^ compoundStatement
     ;
 
+lambdaDeclaration
+    :   LAMBDA^ compoundStatement
+    ;
+
 
 // expressions
 // Note that most of these expressions follow the pattern
@@ -1612,6 +1619,11 @@ SEMI			:	';'		;
 //token signifying annotations and annotation declaration
 AT
     :   '@'
+    ;
+
+//lambda token introduced in Java 1.8
+LAMBDA
+    :   "->"
     ;
 
 // Whitespace -- ignored
